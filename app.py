@@ -196,6 +196,9 @@ with col2:
     rank_df.index = rank_df.index + 1  # ✅ 排名从1开始
     rank_df = rank_df.rename(columns={"student_id": "学号", "best_dist": "得分"})
 
+    # ✅ 得分保留两位小数
+    rank_df["得分"] = rank_df["得分"].apply(lambda x: f"{x:.2f}")
+
     # ✅ 转换为HTML并自定义样式
     html_table = rank_df[["学号", "得分"]].to_html(classes="styled-table", justify="center", border=0)
 
@@ -225,3 +228,4 @@ with col2:
 
     # ✅ 输出排行榜HTML
     st.markdown(html_table, unsafe_allow_html=True)
+
