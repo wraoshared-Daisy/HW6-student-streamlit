@@ -139,7 +139,7 @@ if uploaded is not None:
         sum_dist = float(np.sum(dists))
 
         st.subheader("📏 本次结果")
-        st.success(f"👉 本次欧氏距离之和：**{sum_dist:.4f}**")
+        st.success(f"👉 本次欧氏距离之和(答案中使用了random_state=42)：**{sum_dist:.4f}**")
 
         # ====== 更新用户最高分（最小dist） ======
         sid = st.session_state.current_user
@@ -228,4 +228,5 @@ with col2:
 
     # ✅ 输出排行榜HTML
     st.markdown(html_table, unsafe_allow_html=True)
+
 
